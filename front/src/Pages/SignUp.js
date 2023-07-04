@@ -32,18 +32,20 @@ export default function SignUppage(){
    }
    const navigate = useNavigate();
     return (
-        <div style={{display:'flex',justifyContent:'center'}}>
-        <form style={{display:"grid",justifyContent:'center',marginTop:'50px',borderColor:'black',borderWidth:'5px',borderStyle:'solid',width:'200px',padding:'10px'}} onSubmit={handleSubmit} >
-             <p>Email</p>
-            <input type='email' name='email' onChange={handleInputs} style={{width:"150px"}} required/>
-            <p>password</p>
-            <input type='password' name='password' onChange={handleInputs} style={{width:"150px"}} required/>
-            <p>Confirm password</p>
-            <input type='password' name='cpassword' onChange={handleInputs} style={{width:"150px"}} required/>
-            <button style={{marginTop:"30px",width:'70px'}} type="submit">Submit</button>
-            <p>Already have a account?Login instead</p>
-            <button onClick={ () => { navigate("/login")}} style={{width:'70px'}}>Login</button>
+        <div className="divlogin">
+        <div>
+        <h1>User SignUp</h1>
+        <form onSubmit={handleSubmit} >
+            <input type='email' name='email' placeholder='Email' onChange={handleInputs} required/>
+            <input type='password' name='password' placeholder="Password" onChange={handleInputs} required/>
+            <input type='password' name='cpassword' placeholder="Confirm Password" onChange={handleInputs} required/>
+            <button type="submit">Submit</button>
             </form>
+            <div style={{display:"flex",justifyContent:"center"}}>
+                <p>Already have a account?</p>
+                <p  onClick={ () => { navigate("/login")}} style={{color:'blueviolet',marginLeft:'5px'}}> login</p>
+            </div>
+</div>
 </div>
     )
 }
