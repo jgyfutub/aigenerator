@@ -2,3 +2,5 @@ venv/
 pybackend/
 back/node_modules/
 front/node_modules/
+pybackend/myproject/venv
+pybackend/venv
