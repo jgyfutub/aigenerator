@@ -4,7 +4,7 @@ import { ReactDOM } from "react";
 import axios from 'axios';
 export default function Aigenerator(){
 const [images,setimages]=useState([])
-
+const [imageSrc, setImageSrc] = useState('')
 const handleImageInput=(event)=>{
     const file=event.target.files[0]
     setimages([...images,file])
@@ -17,19 +17,23 @@ const handleSubmit=async(e)=>{
     formdata.append('image2',images[1])
     console.log(formdata)
     const senddata=await axios.post('http://127.0.0.1:8000/neuralstyletransfer/',formdata)
-    const imgai=document.getElementsByClassName('imgai')
-    imgai.src='data:image/png;base64,'+senddata.data.image
-    console.log(imgai.src)
+    let url='data:image/png;base64,'+senddata.data.image
+    setImageSrc(url)
+    console.log(imageSrc)
+    changeImage(url)
+    console.log(imageSrc)
 }
-
+const changeImage = (url) => {
+    setImageSrc(url)
+  };
 return(
     <div>
     <form onSubmit={handleSubmit}>
     <input type='file' onChange={handleImageInput}/>
     <input type='file' onChange={handleImageInput}/>
     <button type='submit'>Submit</button>
-    <img src="" className="imgai" alt="Generated image by nerual style"/>
     </form>
+    <img src={imageSrc} className="imgai" alt="Generated image by nerual style" height={100} width={100}/>
     </div>
 )
 }
