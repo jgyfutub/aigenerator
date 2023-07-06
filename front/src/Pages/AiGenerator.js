@@ -20,6 +20,7 @@ const handleImageInput=(event)=>{
         const image=new Image()
         image.src=dataUrl
         image.onload=()=>{
+            console.log(tf.browser.fromPixels(image))
             setimages([...images,tf.browser.fromPixels(image)])
         }
     }
