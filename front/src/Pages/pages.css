@@ -36,19 +36,72 @@
 }
 
 .aidiv{
-    display: grid;
-    justify-content: center;
-}
-.aidiv form {
+    margin-top: 40px;
     display: grid;
     justify-content: center;
     row-gap: 40px;
 }
+.aidiv form {
+    display: grid;
+    row-gap: 40px;
+}
 .aidiv form button{
     width: 200px;
+    color: white;
+    background-color: rgb(7, 178, 7);
     height: 50px;
+    border-width: 0px;
+    border-radius: 10px;
+}
+.aidiv form button:hover{
+    background-color: rgb(8, 139, 8);
 }
 .aidiv form div{
     display: flex;
     justify-content: center;
+    margin-left: 5%;
+}
+.aidiv form button{
+    margin-left: 30%;
+}
+.aidiv img{
+    margin-left: 25%;
+}
+.aidiv div button{
+    color:white;
+    background-color: rgb(7, 178, 7);
+    height: 40px;
+    border-width: 0px;
+    border-radius: 5px;
+}
+.aidiv div button:hover{
+    background-color: rgb(8, 139, 8);
+}
+
+.Header{
+    display: flex;
+    justify-content:space-between;
+    height: 60px;
+    background-color: rgb(5, 88, 88);
+    color: white;
+}
+.Header p{
+    color: white;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+.Header button{
+    background-color: rgb(7, 178, 7);
+    margin-left: 30px;
+    height: 30px;
+    width: 30px;
+    margin-top: 15px;
+    border-width: 0px;
+    border-radius: 5px;
+    color: white;
+    font-size: large;
+    padding: 2px;
+}
+.Header button:hover{
+    background-color:rgb(8, 139, 8) ;
 }
