@@ -105,3 +105,20 @@
 .Header button:hover{
     background-color:rgb(8, 139, 8) ;
 }
+.PopUp{
+    position: fixed;
+    height: 100%;
+    top:60px;
+    row-gap: 20px;
+    background-color:  rgb(5, 88, 88);
+    width: 250px;
+}
+.PopUp button{
+    color: white;
+    width: 250px;
+    height: 50px;
+    border-width: 0px;
+    background-color:  rgb(5, 88, 88);}
+.PopUp button:hover{
+    color:black;
+}
