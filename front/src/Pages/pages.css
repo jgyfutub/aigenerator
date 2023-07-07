@@ -34,3 +34,21 @@
 .divlogin div form button:hover{
     background-color: rgb(8, 139, 8);
 }
+
+.aidiv{
+    display: grid;
+    justify-content: center;
+}
+.aidiv form {
+    display: grid;
+    justify-content: center;
+    row-gap: 40px;
+}
+.aidiv form button{
+    width: 200px;
+    height: 50px;
+}
+.aidiv form div{
+    display: flex;
+    justify-content: center;
+}

@@ -39,9 +39,10 @@ class ReactView(APIView):
         print(array)
         array=array.numpy()
         imagegenerated = Image.fromarray(array)
-        imagegenerated.save('C:/Users/Acer/OneDrive/Desktop/imagegenerator/pybackend/myproject/media/images'+str(len(os.listdir('C:/Users/Acer/OneDrive/Desktop/imagegenerator/pybackend/myproject/media'))+1)+'.png','PNG' )
+        imagegenerated.save('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media/images.png','PNG' )
+        imagegenerated.save('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media/image'+str(len(os.listdir('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media'))+1)+'.png','PNG' )
         imagegenerated_bytes=imagegenerated.tobytes()
         imagegenerated_base64=base64.b64encode(imagegenerated_bytes).decode('utf-8')
-        return JsonResponse({'message':'django connected!!','image':imagegenerated_base64,'imageurl':'C:/Users/Acer/OneDrive/Desktop/imagegenerator/pybackend/myproject/media/images'+str(len(os.listdir('C:/Users/Acer/OneDrive/Desktop/imagegenerator/pybackend/myproject/media')))+'.png'})
+        return JsonResponse({'message':'django connected!!','image':imagegenerated_base64,'imageurl':'./media/images'+str(len(os.listdir('C:/Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media')))+'.png'})
     def get(self,request):
         return JsonResponse({'message':'neural style transfer api'})
