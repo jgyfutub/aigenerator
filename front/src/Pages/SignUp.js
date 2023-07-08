@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 export default function SignUppage(){
     const [userCredentials, setUserCredentials] = useState({email: "",password: "",cpassword:""})
+    const [informUser,informUserfunc]=useState("")
+    const navigate = useNavigate();
     const handleInputs = (e) => {
         const Name = e.target.name;
         const Value = e.target.value;
         setUserCredentials({ ...userCredentials, [Name]: Value });
    };
    const handleSubmit=async (e)=>{
-    if (userCredentials.password===userCredentials.cpassword){
     e.preventDefault()
+    if (userCredentials.password===userCredentials.cpassword){
     console.log( "sending request");
     const response= await fetch('http://localhost:8080/signup',{
         method:'POST',
@@ -22,23 +24,20 @@ export default function SignUppage(){
     const data=await response.json()
     console.log(data)
     if(data==null){
-        alert("oih")
+       informUserfunc("account already registerd!! better login!!")
+    }else{
+        informUserfunc("registered!!")
     }
-    console.log( "end:");
 }
     else{
-        alert("password not same")
-        navigate('/signup')
+        informUserfunc("password not same")
     }
    }
-   const navigate = useNavigate();
-   useEffect(() => {
-    const currentUser_ = JSON.parse(localStorage.getItem("currentUser"));
 
-    if (currentUser_ != null) {
-         navigate("/");
-    }
-}, []);
+   useEffect(() => {
+    console.log(informUser); 
+  }, [informUser]);
+
     return (
         <div className="divlogin">
         <div>
@@ -49,6 +48,7 @@ export default function SignUppage(){
             <input type='password' name='cpassword' placeholder="Confirm Password" onChange={handleInputs} required/>
             <button type="submit">Submit</button>
             </form>
+            <p style={{color:'red'}}>{informUser}</p>
             <div style={{display:"flex",justifyContent:"center"}}>
                 <p>Already have a account?</p>
                 <p  onClick={ () => { navigate("/login")}} style={{color:'blueviolet',marginLeft:'5px'}}> login</p>
