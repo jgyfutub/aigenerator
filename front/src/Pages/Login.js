@@ -21,9 +21,11 @@ export default function Loginpage(){
     })
     const data=await response.json()
     console.log(data)
-    // alert(data.status)
     informUserfunc(data.status)
    }
+   useEffect(() => {
+    const currentUser_ = JSON.parse(localStorage.getItem("currentUser"));
+    console.log(currentUser_)},[])
    useEffect(() => {
     console.log(informUser); 
   }, [informUser]);

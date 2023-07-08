@@ -11,8 +11,8 @@ mongoose.set("strictQuery", false);
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 mongoose.connect('mongodb://localhost:27017/shopDB',{useNewURLParser:true,useUnifiedTopology: true, family: 4}).then(()=>{console.log('connected mongoose')})
-//making the schema of User
 
+//making the schema of User
 
 const UserSchema = new mongoose.Schema({
   email: String,
@@ -42,7 +42,6 @@ app.post('/signup',async (req,res)=>{
 //GET for post
 
 app.get('/signup',async(req,res)=>{
-    console.log( "hhhh");
     const data={
         'data' : 'signup api '
     };
@@ -50,6 +49,7 @@ app.get('/signup',async(req,res)=>{
 })
 
 //POST for login
+
 app.post('/login',async(req,res)=>{
     let data= await UserDetail.findOne({email:req.body.email}).exec()
     const userObject = {
@@ -70,6 +70,8 @@ app.post('/login',async(req,res)=>{
     res.json(userObject)
 })
 
+//GET for login
+
 app.get('/login',async(req,res)=>{
     const data={
         'data' : 'login api'
@@ -78,6 +80,7 @@ app.get('/login',async(req,res)=>{
 })
 
 //starting the 8080 server
+
 app.listen(8080,()=>{
     console.log('server running on 8080');
 })
