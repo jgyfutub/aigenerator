@@ -1,9 +1,16 @@
 import React ,{useState,useEffect}from "react";
+import { useNavigate } from "react-router-dom";
 import './pages.css';
 export default function Header(){
     const [bool,funcbool]=useState(false)
+    const navigate = useNavigate()
     const handleClick=()=>{
         funcbool(prevBool => !prevBool)
+    }
+    const logoutfunction=async()=>{
+        console.log(localStorage.getItem('Currentuser'))
+        await localStorage.removeItem('Currentuser')
+        navigate('/')
     }
     useEffect(() => {
         console.log(bool); 
@@ -38,7 +45,7 @@ export default function Header(){
             <hr/>
             <button>Saved Images</button>
             <hr/>
-            <button>Log Out</button>
+            <button  onClick={logoutfunction}>Log Out</button>
             <hr/>
             </div>)
             :

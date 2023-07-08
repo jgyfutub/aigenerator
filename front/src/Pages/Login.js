@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './pages.css'
+
 export default function Loginpage(){
     const [userCredentials, setUserCredentials] = useState({email: "",password: ""})
     const [informUser,informUserfunc]=useState("")
@@ -20,12 +21,21 @@ export default function Loginpage(){
         },
     })
     const data=await response.json()
+    const UserData={
+        id:data.id,
+        email:data.email,
+        password:data.password,
+        v:data.v
+    }
+    localStorage.setItem("Currentuser",JSON.stringify(UserData))
     console.log(data)
     informUserfunc(data.status)
+    navigate('/aigenerator')
    }
    useEffect(() => {
-    const currentUser_ = JSON.parse(localStorage.getItem("currentUser"));
-    console.log(currentUser_)},[])
+    const currentUser_ = JSON.parse(localStorage.getItem("Currentuser"));
+    console.log(currentUser_)
+},[])
    useEffect(() => {
     console.log(informUser); 
   }, [informUser]);

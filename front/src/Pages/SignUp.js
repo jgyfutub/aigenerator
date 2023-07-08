@@ -20,7 +20,6 @@ export default function SignUppage(){
          "Content-Type": "application/json",
         },
     })
-    localStorage.setItem("CurrentUser",userCredentials)
     const data=await response.json()
     console.log(data)
     if(data==null){

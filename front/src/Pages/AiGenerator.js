@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import * as tf from "@tensorflow/tfjs";
 import { ReactDOM } from "react";
 import axios from 'axios';
@@ -7,7 +8,16 @@ import genimages from './media/images.png';
 import Header from "./Header";
 export default function Aigenerator(){
 const [images,setimages]=useState([])
+const navigate = useNavigate()
 const [imageSrc, setImageSrc] = useState('')
+
+useEffect(()=>{
+const currentUser_ = JSON.parse(localStorage.getItem("Currentuser"));
+console.log(currentUser_)
+if (currentUser_ == null) {
+navigate("/");
+}
+},[])
 const handleImageInput=(event)=>{
     const file=event.target.files[0]
     setimages([...images,file])
@@ -17,6 +27,8 @@ const handleImageInput=(event)=>{
 const handleSubmit=async(e)=>{
     e.preventDefault()
     const formdata=new FormData()
+    const localdata=await localStorage.getItem('Currentuser')
+    formdata.append("user_details",localdata.id)
     formdata.append('image1',images[0])
     formdata.append('image2',images[1])
     console.log(formdata)
@@ -25,6 +37,7 @@ const handleSubmit=async(e)=>{
     setImageSrc(url)
     console.log(imageSrc)
 }
+
 return(
     <div>
     <Header/>
