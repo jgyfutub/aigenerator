@@ -18,6 +18,7 @@ export default function SignUppage(){
          "Content-Type": "application/json",
         },
     })
+    localStorage.setItem("CurrentUser",userCredentials)
     const data=await response.json()
     console.log(data)
     if(data==null){
@@ -31,6 +32,13 @@ export default function SignUppage(){
     }
    }
    const navigate = useNavigate();
+   useEffect(() => {
+    const currentUser_ = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (currentUser_ != null) {
+         navigate("/");
+    }
+}, []);
     return (
         <div className="divlogin">
         <div>

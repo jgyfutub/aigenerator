@@ -22,10 +22,10 @@ class ReactView(APIView):
         image1=request.FILES['image1']
         image2=request.FILES['image2']
         image1 = Image.open(image1)
-        image_array1= tf.image.resize(np.array(image1),[256,256])/255.0
+        image_array1= tf.image.resize(np.array(image1),[512,512])/255.0
         image_array1=tf.cast(image_array1,tf.float32)[:,:,:3]
         image2 = Image.open(image2)
-        image_array2= tf.image.resize(np.array(image2),[256,256])/255.0
+        image_array2= tf.image.resize(np.array(image2),[512,512])/255.0
         image_array2=tf.cast(image_array2,tf.float32)[:,:,:3]
         print(image_array1,image_array2)
         model=tfhub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
