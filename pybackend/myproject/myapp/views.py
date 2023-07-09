@@ -19,6 +19,8 @@ def index(request):
     return render(request,'index.html',context)
 class ReactView(APIView):
     def post(self,request):
+        id=request.POST['user_details']
+        print(id)
         image1=request.FILES['image1']
         image2=request.FILES['image2']
         image1 = Image.open(image1)
@@ -39,8 +41,8 @@ class ReactView(APIView):
         print(array)
         array=array.numpy()
         imagegenerated = Image.fromarray(array)
-        imagegenerated.save('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media/images.png','PNG' )
-        imagegenerated.save('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media/image'+str(len(os.listdir('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media'))+1)+'.png','PNG' )
+        imagegenerated.save('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media/images#'+str(id)+'.png','PNG' )
+        imagegenerated.save('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media/image#'+str(id)+'$'+str(len(os.listdir('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media'))+1)+'.png','PNG' )
         imagegenerated_bytes=imagegenerated.tobytes()
         imagegenerated_base64=base64.b64encode(imagegenerated_bytes).decode('utf-8')
         return JsonResponse({'message':'django connected!!','image':imagegenerated_base64,'imageurl':'./media/images'+str(len(os.listdir('C:/Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media')))+'.png'})
