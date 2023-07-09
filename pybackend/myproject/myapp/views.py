@@ -41,10 +41,10 @@ class ReactView(APIView):
         print(array)
         array=array.numpy()
         imagegenerated = Image.fromarray(array)
-        imagegenerated.save('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media/images#'+str(id)+'.png','PNG' )
-        imagegenerated.save('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media/image#'+str(id)+'$'+str(len(os.listdir('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media'))+1)+'.png','PNG' )
+        imagegenerated.save('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/public/images/imagesid'+str(id)+'.png','PNG' )
+        imagegenerated.save('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/public/images/imageid'+str(id)+'no'+str(len(os.listdir('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/public/images'))+1)+'.png','PNG' )
         imagegenerated_bytes=imagegenerated.tobytes()
         imagegenerated_base64=base64.b64encode(imagegenerated_bytes).decode('utf-8')
-        return JsonResponse({'message':'django connected!!','image':imagegenerated_base64,'imageurl':'./media/images'+str(len(os.listdir('C:/Users/Acer/OneDrive/Desktop/imagegenerator/front/src/Pages/media')))+'.png'})
+        return JsonResponse({'message':'django connected!!','image':imagegenerated_base64,'imageurl':'./images/imagesid'+str(id)+'no'+str(len(os.listdir('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/public/images')))+'.png'})
     def get(self,request):
         return JsonResponse({'message':'neural style transfer api'})
