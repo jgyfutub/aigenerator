@@ -12,11 +12,14 @@ const [imageSrc, setImageSrc] = useState('')
 
 useEffect(()=>{
 const currentUser_ = JSON.parse(localStorage.getItem("Currentuser"));
-console.log(currentUser_)
-setImageSrc(currentUser_.id)
+
 
 if (currentUser_ == null) {
 navigate("/");
+}
+else if(currentUser_!=null){
+    console.log(currentUser_)
+    setImageSrc(currentUser_.id)
 }
 },[])
 
