@@ -1,6 +1,5 @@
 import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import * as tf from "@tensorflow/tfjs";
 import { ReactDOM } from "react";
 import axios from 'axios';
 import './pages.css';
@@ -54,6 +53,7 @@ useEffect(()=>{
 return(
     <div>
     <Header userid={userid} />
+    <p style={{marginTop:'80px',color:'red',fontSize:'small'}}>Note:please wait for max 10 seconds after clicking submit</p>
     <div className="aidiv">
     <form onSubmit={handleSubmit}>
     <div>
