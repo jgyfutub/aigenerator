@@ -6,6 +6,7 @@ import axios from 'axios'
 export default function SavedImages(){
     const [id,setid]=useState('')
     const [arrimg,setarrimg]=useState([])
+    const [userid,setuserid]=useState('')
     const navigate = useNavigate();
     useEffect(()=>{
         const currentUser_=JSON.parse(localStorage.getItem('Currentuser'))
@@ -15,6 +16,7 @@ export default function SavedImages(){
         else if(currentUser_!=null){
                 console.log(currentUser_)
                 setid(currentUser_.id)
+                setuserid(currentUser_.email)
             }
     },[])
     const getimgpaths=async(formdata)=>{
@@ -37,15 +39,17 @@ export default function SavedImages(){
     useEffect(()=>{
         console.log(arrimg)
     },[arrimg])
+    useEffect(()=>{
+        console.log(userid)
+    },[userid])
     return(
         <div>
-            <Header/>
+            <Header userid={userid}/>
             <h1 style={{marginTop:'60px'}}>Saved Images</h1>
             <div>
             {arrimg.map((item,index)=>{
-                <div>
-                <p>item:{item}</p>
-                <img key={index} src={item}/></div>
+               return (
+                <img key={index} src={item} height={200} width={200} style={{margin:'10px'}}/>)
             })}
         </div>
         </div>

@@ -9,17 +9,17 @@ export default function Aigenerator(){
 const [images,setimages]=useState([])
 const navigate = useNavigate()
 const [imageSrc, setImageSrc] = useState('')
+const [userid,setuserid]=useState("")
 
 useEffect(()=>{
 const currentUser_ = JSON.parse(localStorage.getItem("Currentuser"));
-
-
 if (currentUser_ == null) {
 navigate("/");
 }
 else if(currentUser_!=null){
     console.log(currentUser_)
     setImageSrc(currentUser_.id)
+    setuserid(currentUser_.email)
 }
 },[])
 
@@ -48,10 +48,12 @@ useEffect(()=>{
     console.log(imageSrc)
 },[imageSrc])
 
-
+useEffect(()=>{
+    console.log(userid)
+},[userid])
 return(
     <div>
-    <Header/>
+    <Header userid={userid} />
     <div className="aidiv">
     <form onSubmit={handleSubmit}>
     <div>
@@ -65,12 +67,7 @@ return(
     </div>
     <button type='submit'>Submit</button>
     </form>
-    <img src={'./images/imagesid'+imageSrc+'.png'} alt="images"/>
-    <div style={{display:'flex',justifyContent:'center',columnGap:'10px'}}>
-    <p>Save Image?</p>
-    <button>yes</button>
-    <button>no</button>
-    </div>
+    <img src={'./images/imagesid'+imageSrc+'.png'} alt="images" style={{marginBottom:'40px'}}/>
     </div>
     </div>
 )

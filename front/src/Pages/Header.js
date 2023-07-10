@@ -1,7 +1,7 @@
 import React ,{useState,useEffect}from "react";
 import { useNavigate } from "react-router-dom";
 import './pages.css';
-export default function Header(){
+export default function Header(props){
     const [bool,funcbool]=useState(false)
     const navigate = useNavigate()
     const handleClick=()=>{
@@ -36,14 +36,15 @@ export default function Header(){
         </div>
         {bool ? (
         <div className="PopUp">
+            <p style={{color:'white'}}>Welcome, {props.userid}</p>
             <hr/>
-            <button>Neural transfer Paint</button>
+            <button onClick={()=>{navigate('/Aigenerator')}}>Neural transfer Paint</button>
             <hr/>
             <button>Image Caption generator</button>
             <hr/>
             <button>Image ennhancer</button>
             <hr/>
-            <button>Saved Images</button>
+            <button onClick={()=>{navigate('/savedimages')}}>Saved Images</button>
             <hr/>
             <button  onClick={logoutfunction}>Log Out</button>
             <hr/>

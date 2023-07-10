@@ -67,7 +67,7 @@ class ImagesView(APIView):
                 print(id)
                 if id==i[7:].split('no')[0]:
                     print(i)
-                    arr.append('C:/Users/Acer/OneDrive/Desktop/imagegenerator/front/public/images/'+i)
+                    arr.append('./images/'+i)
         print(arr)
         return JsonResponse({'array':arr})
     

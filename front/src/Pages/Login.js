@@ -6,6 +6,13 @@ export default function Loginpage(){
     const [userCredentials, setUserCredentials] = useState({email: "",password: ""})
     const [informUser,informUserfunc]=useState("")
     const navigate = useNavigate();
+    useEffect(()=>{
+        const currentUser_ = JSON.parse(localStorage.getItem("Currentuser"));
+        if(currentUser_!=null){
+            alert("you are already logged in!!")
+            navigate('/aigenerator')
+        }
+        },[])
     const handleInputs = (e) => {
         const Name = e.target.name;
         const Value = e.target.value;
