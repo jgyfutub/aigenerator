@@ -17,7 +17,11 @@ def index(request):
         'version':tf.__version__
     }
     return render(request,'index.html',context)
+
+#api so that neural style transfer can occur
+
 class ReactView(APIView):
+
     def post(self,request):
         id=request.POST['user_details']
         print(id)
@@ -46,5 +50,27 @@ class ReactView(APIView):
         imagegenerated_bytes=imagegenerated.tobytes()
         imagegenerated_base64=base64.b64encode(imagegenerated_bytes).decode('utf-8')
         return JsonResponse({'message':'django connected!!','image':imagegenerated_base64,'imageurl':'./images/imagesid'+str(id)+'no'+str(len(os.listdir('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/public/images')))+'.png'})
+    
     def get(self,request):
         return JsonResponse({'message':'neural style transfer api'})
+    
+#api for sending images' url of particular id
+
+class ImagesView(APIView):
+
+    def post(self,request):
+        id=request.POST['id']
+        arr=[]
+        print("oiuytfdz")
+        for i in os.listdir('C:/Users/Acer/OneDrive/Desktop/imagegenerator/front/public/images'):
+            if id in i:
+                print(id)
+                if id==i[7:].split('no')[0]:
+                    print(i)
+                    arr.append('C:/Users/Acer/OneDrive/Desktop/imagegenerator/front/public/images/'+i)
+        print(arr)
+        return JsonResponse({'array':arr})
+    
+    def get(self,request):
+        return JsonResponse({'message':'saved images api'})
+        

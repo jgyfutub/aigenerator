@@ -20,5 +20,6 @@ from myapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),
-    path('neuralstyletransfer/',views.ReactView.as_view(),name='neuralstyletransfer')
+    path('neuralstyletransfer/',views.ReactView.as_view(),name='neuralstyletransfer'),
+    path('savedimages/',views.ImagesView.as_view(),name='savedimages')
 ]
