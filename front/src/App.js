@@ -7,6 +7,7 @@ import HomePage from "./Pages/Home";
 import Aigenerator from "./Pages/AiGenerator";
 import SignUppage from "./Pages/SignUp";
 import SavedImages from "./Pages/SavedImages";
+import TexttoImage from "./Pages/TexttoImage";
 function App() {
   return (
     <Router>
@@ -16,6 +17,7 @@ function App() {
         <Route path='/login' element={<Loginpage/>}/>
         <Route path='/signup' element={<SignUppage/>}/>
         <Route path='/aigenerator' element={<Aigenerator/>}/>
+        <Route path='/texttoimage' element={<TexttoImage/>}/>
         <Route path='/savedimages' element={<SavedImages/>}/>
       </Routes>
     </div>

@@ -6,8 +6,10 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 import json
 import os
+import keras
 import base64
 from PIL import Image
+import keras_cv
 import numpy as np
 # Create your views here.
 def index(request):
@@ -76,7 +78,14 @@ class ImagesView(APIView):
 
 class TexttoImage(APIView):
     def post(self,request):
+        id=request.POST['userid']
+        caption=request.POST['caption']
+        print(caption,id)
+        keras.mixed_precision.set_global_policy("mixed_float16")
+        model = keras_cv.models.StableDiffusion(jit_compile=True)
+        # image=model.text_to_image(caption,channels=3)
+        print(model)
         return JsonResponse({"message":"post"})
     def get(self,request):
-        return JsonResponse("message":"get")
+        return JsonResponse({"message":"get"})
         

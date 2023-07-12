@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),
     path('neuralstyletransfer/',views.ReactView.as_view(),name='neuralstyletransfer'),
-    path('savedimages/',views.ImagesView.as_view(),name='savedimages')
+    path('savedimages/',views.ImagesView.as_view(),name='savedimages'),
+    path('texttoimage/',views.TexttoImage.as_view(),name='textoimage')
 ]
