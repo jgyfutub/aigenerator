@@ -49,7 +49,7 @@ export default function Loginpage(){
     return (
         <div className="divlogin">
         <div>
-        <p style={{color:'red',fontSize:'small'}}>Note:please wait for max 10 seconds after clicking submit</p>
+        <p style={{color:'red',fontSize:'small'}}>Note:please wait for max 6 seconds after clicking submit</p>
         <h1>User Login</h1>
         <form onSubmit={handleSubmit} >
             <input type='email' name='email' placeholder='Email' onChange={handleInputs} required/>

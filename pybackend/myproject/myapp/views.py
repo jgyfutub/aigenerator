@@ -73,4 +73,10 @@ class ImagesView(APIView):
     
     def get(self,request):
         return JsonResponse({'message':'saved images api'})
+
+class TexttoImage(APIView):
+    def post(self,request):
+        return JsonResponse({"message":"post"})
+    def get(self,request):
+        return JsonResponse("message":"get")
         
