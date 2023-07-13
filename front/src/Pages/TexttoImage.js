@@ -4,7 +4,7 @@ import Header from "./Header";
 import axios from 'axios';
 export default function TexttoImage(props){
 const [userid,setuserid]=useState("")
-const [caption,setcaption]=useState("")
+const [image,setimage]=useState(null)
 const navigate = useNavigate()
 
 useEffect(()=>{
@@ -19,14 +19,16 @@ useEffect(()=>{
     },[])
 
 const handleInputs=(e)=>{
-    setcaption(e.target.caption)
+    setimage(e.target.files[0])
     }
-
+useEffect(()=>{
+    console.log(image)
+},[image])
 const handleSubmit=async(e)=>{
     e.preventDefault()
     const formdata=new FormData()
     formdata.append('userid',userid)
-    formdata.append('caption',caption)
+    formdata.append('image',image)
     const response=await axios.post('http://127.0.0.1:8000/texttoimage/',formdata)
     console.log(response)
 
@@ -34,11 +36,13 @@ const handleSubmit=async(e)=>{
         return (
             <div>
             <Header userid={userid}/>
-            <form onSubmit={handleSubmit} style={{marginTop:'50px'}}>
-                <input type='text' onChange={handleInputs}/>
+            <div>
+            <h1>Image Super Resolution</h1>
+            <form onSubmit={handleSubmit}>
+                <input type='file' onChange={handleInputs}/>
                 <button type='submit' name='caption'>Submit</button>
             </form>
-
+</div>
             </div>
         )
 }

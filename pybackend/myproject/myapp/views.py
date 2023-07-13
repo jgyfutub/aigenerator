@@ -9,7 +9,6 @@ import os
 import keras
 import base64
 from PIL import Image
-import keras_cv
 import numpy as np
 # Create your views here.
 def index(request):
@@ -79,12 +78,20 @@ class ImagesView(APIView):
 class TexttoImage(APIView):
     def post(self,request):
         id=request.POST['userid']
-        caption=request.POST['caption']
-        print(caption,id)
-        keras.mixed_precision.set_global_policy("mixed_float16")
-        model = keras_cv.models.StableDiffusion(jit_compile=True)
-        # image=model.text_to_image(caption,channels=3)
+        Imageq=request.FILES['image']
+        image=Image.open(Imageq)
+        image= tf.image.resize(np.array(image),[512,512])
+        image=tf.cast(image, tf.float32)[:,:,:3]
+        image=tf.expand_dims(image,0)
+        model=tfhub.load('https://tfhub.dev/captain-pool/esrgan-tf2/1')
         print(model)
+        gen_arr=model(image)
+        gen_arr=tf.squeeze(gen_arr)
+        array=tf.cast(gen_arr,tf.uint8)
+        print(array)
+        array=array.numpy()
+        imagegenerated = Image.fromarray(array)
+        imagegenerated.save('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/public/supimages/imagesid'+str(id)+'.png','PNG' )
         return JsonResponse({"message":"post"})
     def get(self,request):
         return JsonResponse({"message":"get"})
