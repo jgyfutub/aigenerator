@@ -41,7 +41,9 @@ const handleSubmit=async(e)=>{
             <div>
             <Header userid={userid}/>
             <div class="SuperResolution">
+            <div>
             <h1>Image Super Resolution</h1>
+            <p style={{color:'red'}}>plz wait for 10 seconds for image to be loaded</p></div>
             <form onSubmit={handleSubmit}>
                 <input type='file' onChange={handleInputs} required/>
                 <button type='submit' name='caption'>Submit</button>

@@ -40,8 +40,6 @@ export default function Header(props){
             <hr/>
             <button onClick={()=>{navigate('/Aigenerator')}}>Neural transfer Paint</button>
             <hr/>
-            <button>Image Caption generator</button>
-            <hr/>
             <button onClick={()=>{navigate('/SuperResolution')}}>Image enhancer</button>
             <hr/>
             <button onClick={()=>{navigate('/savedimages')}}>Saved Neural transfer Paint Images</button>
