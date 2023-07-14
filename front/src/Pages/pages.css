@@ -145,3 +145,25 @@
 .HomePage div button:hover{
     background-color:rgb(8, 139, 8) ;
 }
+.SuperResolution{
+    margin-top: 70px;
+    display: grid;
+    justify-content: center;
+    row-gap: 30px;
+}
+.SuperResolution form{
+    display: grid;
+    row-gap: 30px;
+    justify-content: center;
+}
+.SuperResolution form button{
+    width: 250px;
+    color: white;
+    background-color: rgb(7, 178, 7);
+    height: 50px;
+    border-width: 0px;
+    border-radius: 10px;
+}
+.SuperResolution form button:hover{
+    background-color:rgb(8, 139, 8) ;
+}

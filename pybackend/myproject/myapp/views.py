@@ -76,8 +76,9 @@ class ImagesView(APIView):
         return JsonResponse({'message':'saved images api'})
 
 class TexttoImage(APIView):
+
     def post(self,request):
-        id=request.POST['userid']
+        id=request.POST['id']
         Imageq=request.FILES['image']
         image=Image.open(Imageq)
         image= tf.image.resize(np.array(image),[512,512])
@@ -92,7 +93,24 @@ class TexttoImage(APIView):
         array=array.numpy()
         imagegenerated = Image.fromarray(array)
         imagegenerated.save('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/public/supimages/imagesid'+str(id)+'.png','PNG' )
+        imagegenerated.save('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/public/supimages/imageid'+str(id)+'no'+str(len(os.listdir('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/public/supimages'))+1)+'.png','PNG' )
         return JsonResponse({"message":"post"})
+    
     def get(self,request):
         return JsonResponse({"message":"get"})
-        
+    
+class EnhancedImageView(APIView):
+    def post(self,request):
+        id=request.POST['id']
+        arr=[]
+        for i in os.listdir('C:/Users/Acer/OneDrive/Desktop/imagegenerator/front/public/supimages'):
+            if id in i:
+                print(id)
+                if id==i[7:].split('no')[0]:
+                    print(i)
+                    arr.append('./supimages/'+i)
+        print(arr)
+        return JsonResponse({'array':arr})
+    
+    def get(self,request):
+        return JsonResponse({'message':'saved images api'})

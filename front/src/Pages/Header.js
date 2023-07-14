@@ -42,9 +42,11 @@ export default function Header(props){
             <hr/>
             <button>Image Caption generator</button>
             <hr/>
-            <button>Image ennhancer</button>
+            <button onClick={()=>{navigate('/SuperResolution')}}>Image enhancer</button>
             <hr/>
-            <button onClick={()=>{navigate('/savedimages')}}>Saved Images</button>
+            <button onClick={()=>{navigate('/savedimages')}}>Saved Neural transfer Paint Images</button>
+            <hr/>
+            <button onClick={()=>{navigate('/savedenhancedimages')}}>Saved Image enhancer Images</button>
             <hr/>
             <button  onClick={logoutfunction}>Log Out</button>
             <hr/>
