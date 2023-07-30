@@ -69,6 +69,7 @@ I have made a web app which can generate images by styling one image with anothe
 - visit http://localhost:8000/ for django frontend
 
 #### Note:
+- download the photomodel file from [here](https://www.kaggle.com/code/vedant2003pandey/aipainter/output).Rename it to photomodel (1).h5
 - in views.py file plz change ` C:/Users/Acer/OneDrive/Desktop ` to the path which leads to imagegenerator folder.I will try to improve this bug
 - If any bug occurs plz let me know about it.I will be grateful for it.
 
