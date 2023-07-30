@@ -13,11 +13,14 @@ I have made a web app which can generate images by styling one image with anothe
 - The user can view all the images generated in saved images page whose button is in pop up menu
 - Super resolution of image input is also added
 - the image output by Super resolution can be viewed in another page dedicated to it whose button is in pop up menu
+- User can also generate Monet Style images by inputting an image thus producing an monet styles image
+- User can also view the generated monet images in another page dedicated to it whose button is in pop up menu
 - then user can logout thus destorying its information kept in local storage
 
 ## Tech Stack
 
 - TensorFlow
+- CycleGANs(you can view the notebook on which the model was made [here](https://github.com/jgyfutub/Kaggle-competitons-notebooks/blob/main/aipainter.ipynb))
 - Django 
 - Express.js
 - MongoDB
