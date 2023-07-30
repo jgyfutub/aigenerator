@@ -46,6 +46,8 @@ export default function Header(props){
             <hr/>
             <button onClick={()=>{navigate('/savedenhancedimages')}}>Saved Image enhancer Images</button>
             <hr/>
+            <button onClick={()=>{navigate('/monetgenerator')}}>Generate Monetesque Styles</button>
+            <hr/>
             <button  onClick={logoutfunction}>Log Out</button>
             <hr/>
             </div>)

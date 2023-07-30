@@ -8,6 +8,7 @@ export default function Monetgenerator(){
     const [image,setimage]=useState(null)
     const [arrimg,setarrimg]=useState([])
     const [id,setid]=useState("")
+    const [time,settime]=useState("")
     const navigate = useNavigate()
     
     useEffect(()=>{
@@ -33,6 +34,8 @@ export default function Monetgenerator(){
         const formdata=new FormData()
         formdata.append('id',id)
         formdata.append('image',image)
+        settime(toString(new Date().getTime()))
+        formdata.append('time',time)
         const response=await axios.post('http://127.0.0.1:8000/monetgenerator/',formdata)
         console.log(response)
         window.location.reload()
@@ -48,7 +51,7 @@ export default function Monetgenerator(){
                     <input type='file' onChange={handleInputs} required/>
                     <button type='submit' name='caption'>Submit</button>
                 </form>
-                <img src={'./supimages/imagesid'+id+'.png'} width={300} height={300} style={{marginLeft:'40px'}}/>
+                <img src={'./Monetimages/imagesid'+id+'.png'} width={300} height={300} style={{marginLeft:'40px'}}/>
                 </div>
                 </div>
             )

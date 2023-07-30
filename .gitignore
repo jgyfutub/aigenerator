@@ -4,3 +4,4 @@ front/node_modules/
 pybackend/myproject/venv
 pybackend/venv
 pybackend/myproject/myapp/photomodel (1).h5
+pybackend/check.py

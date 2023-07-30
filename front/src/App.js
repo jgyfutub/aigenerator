@@ -9,6 +9,7 @@ import SignUppage from "./Pages/SignUp";
 import SavedImages from "./Pages/SavedImages";
 import TexttoImage from "./Pages/SuperResolution";
 import Savedenhancedimages from "./Pages/savedenhancedimages";
+import Monetgenerator from "./Pages/monetgenerator";
 function App() {
   return (
     <Router>
@@ -21,6 +22,7 @@ function App() {
         <Route path='/SuperResolution' element={<TexttoImage/>}/>
         <Route path='/savedenhancedimages' element={<Savedenhancedimages/>}/>
         <Route path='/savedimages' element={<SavedImages/>}/>
+        <Route path='/monetgenerator' element={<Monetgenerator/>}/>
       </Routes>
     </div>
   </Router>

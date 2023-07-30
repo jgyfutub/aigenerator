@@ -23,5 +23,6 @@ urlpatterns = [
     path('neuralstyletransfer/',views.ReactView.as_view(),name='neuralstyletransfer'),
     path('savedimages/',views.ImagesView.as_view(),name='savedimages'),
     path('texttoimage/',views.TexttoImage.as_view(),name='textoimage'),
-    path('savedenhancedimages/',views.EnhancedImageView.as_view(),name='savedenhancedimages')
+    path('savedenhancedimages/',views.EnhancedImageView.as_view(),name='savedenhancedimages'),
+    path('monetgenerator/',views.MonetImagegenerator.as_view(),name='monetgenerator')
 ]

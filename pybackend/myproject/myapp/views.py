@@ -10,6 +10,7 @@ import keras
 import base64
 from PIL import Image
 import numpy as np
+from keras.models import load_model
 # Create your views here.
 def index(request):
     context={
@@ -114,3 +115,25 @@ class EnhancedImageView(APIView):
     
     def get(self,request):
         return JsonResponse({'message':'saved images api'})
+    
+class MonetImagegenerator(APIView):
+    def post(self,request):
+        id=request.POST['id']
+        Imageq=request.FILES['image']
+        date=request.POST['time']
+        print(date,Imageq)
+        model = load_model('C:/Users/Acer/OneDrive/Desktop/imagegenerator/pybackend/myproject/myapp/photomodel (1).h5')
+        image=Image.open(Imageq)
+        image= tf.image.resize(np.array(image),[256,256])
+        image = tf.cast(image, tf.float32)
+        image=tf.expand_dims(image,0)
+        image = (image / 127.5) - 1
+        pred=model(image)[0].numpy()
+        pred = (pred * 127.5 + 127.5).astype(np.uint8)
+        print(pred)
+        imagegenerated = Image.fromarray(pred)
+        imagegenerated.save('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/public/Monetimages/imagesid'+str(id)+'.png','PNG' )
+        imagegenerated.save("C://Users/Acer/OneDrive/Desktop/imagegenerator/front/public/Monetimages/imagesid"+id+'no'+str(len(os.listdir('C://Users/Acer/OneDrive/Desktop/imagegenerator/front/public/Monetimages'))+1)+".png",'PNG')
+        return JsonResponse({"message":"post","date":date})
+    def get(self,request):
+        return JsonResponse({"message":"get"})
