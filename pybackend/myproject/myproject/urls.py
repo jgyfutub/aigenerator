@@ -24,5 +24,6 @@ urlpatterns = [
     path('savedimages/',views.ImagesView.as_view(),name='savedimages'),
     path('texttoimage/',views.TexttoImage.as_view(),name='textoimage'),
     path('savedenhancedimages/',views.EnhancedImageView.as_view(),name='savedenhancedimages'),
-    path('monetgenerator/',views.MonetImagegenerator.as_view(),name='monetgenerator')
+    path('monetgenerator/',views.MonetImagegenerator.as_view(),name='monetgenerator'),
+    path('savedmonetimages/',views.MonetImageView.as_view(),name='savedmonetimages')
 ]

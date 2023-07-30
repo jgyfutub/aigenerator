@@ -48,6 +48,8 @@ export default function Header(props){
             <hr/>
             <button onClick={()=>{navigate('/monetgenerator')}}>Generate Monetesque Styles</button>
             <hr/>
+            <button onClick={()=>{navigate('/savedmonetimages')}}>Saved Monetesque Images</button>
+            <hr/>
             <button  onClick={logoutfunction}>Log Out</button>
             <hr/>
             </div>)

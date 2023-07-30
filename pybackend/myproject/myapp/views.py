@@ -137,3 +137,19 @@ class MonetImagegenerator(APIView):
         return JsonResponse({"message":"post","date":date})
     def get(self,request):
         return JsonResponse({"message":"get"})
+    
+class MonetImageView(APIView):
+    def post(self,request):
+        id=request.POST['id']
+        arr=[]
+        for i in os.listdir('C:/Users/Acer/OneDrive/Desktop/imagegenerator/front/public/Monetimages'):
+            if id in i:
+                print(id,i,i[8:].split('no'))
+                if id==i[8:].split('no')[0]:
+                    print(i)
+                    arr.append('./Monetimages/'+i)
+        print(arr)
+        return JsonResponse({'array':arr})
+    
+    def get(self,request):
+        return JsonResponse({'message':'saved images api'})
