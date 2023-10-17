@@ -21,7 +21,7 @@ I have made a web app which can generate images by styling one image with anothe
 
 - TensorFlow
 - CycleGANs(you can view the notebook on which the model was made [here](https://github.com/jgyfutub/Kaggle-competitons-notebooks/blob/main/aipainter.ipynb))
-- Django 
+- Flask
 - Express.js
 - MongoDB
 - Mongoose
@@ -57,20 +57,18 @@ I have made a web app which can generate images by styling one image with anothe
 - write ` npm start ` to start the frontend server
 - go to http://localhost:3000/ to use app
 
-#### For Django
+#### For FLask
 
 - Open Command prompt of your system
 - ensure that virtual enviroment and python is installed in system
 - write ` python -m venv venv ` to enter a virtual enviroment
 - write ` venv\Scripts\activate ` to activate it
-- now cd to myproject folder in the imagegenerator folder so that it can access django files
-- install dependencies ` pip install django tensorflow tensorflow-hub numpy pillow `
-- now write ` python manage.py runserver ` to start server
-- visit http://localhost:8000/ for django frontend
+- now cd to pybackend to access flask file
+- install dependencies ` pip install flask tensorflow tensorflow-hub numpy pillow `
+- now write ` python flaskmain.py ` to start server at http://localhost:8000/
 
 #### Note:
 - download the photomodel file from [here](https://www.kaggle.com/code/vedant2003pandey/aipainter/output).Rename it to photomodel (1).h5
-- in views.py file plz change ` C:/Users/Acer/OneDrive/Desktop ` to the path which leads to imagegenerator folder.I will try to improve this bug
 - If any bug occurs plz let me know about it.I will be grateful for it.
 
 ## Made with ❤️ by
