@@ -33,7 +33,7 @@ const handleSubmit=async(e)=>{
     const formdata=new FormData()
     formdata.append('id',id)
     formdata.append('image',image)
-    const response=await axios.post('http://127.0.0.1:8000/texttoimage/',formdata)
+    const response=await axios.post('http://127.0.0.1:5000/texttoimage/',formdata)
     console.log(response)
     window.location.reload()
 }
