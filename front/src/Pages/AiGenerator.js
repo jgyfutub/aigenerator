@@ -37,7 +37,7 @@ const handleSubmit=async(e)=>{
     formdata.append('image1',images[0])
     formdata.append('image2',images[1])
     console.log(formdata)
-    const senddata=await axios.post('http://127.0.0.1:8000/neuralstyletransfer/',formdata)
+    const senddata=await axios.post('http://127.0.0.1:5000/neuralstyletransfer/',formdata)
     // const sendata=await senddata.json()
     console.log(senddata)
     window.location.reload()
