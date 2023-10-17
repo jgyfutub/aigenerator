@@ -20,7 +20,7 @@ export default function SavedImages(){
             }
     },[])
     const getimgpaths=async(formdata)=>{
-        const response=await axios.post('http://127.0.0.1:8000/savedimages/',formdata)
+        const response=await axios.post('http://127.0.0.1:5000/savedimages/',formdata)
         return await response
     }
     useEffect(()=>{
