@@ -36,7 +36,7 @@ export default function Monetgenerator(){
         formdata.append('image',image)
         settime(toString(new Date().getTime()))
         formdata.append('time',time)
-        const response=await axios.post('http://127.0.0.1:8000/monetgenerator/',formdata)
+        const response=await axios.post('http://127.0.0.1:5000/monetgenerator/',formdata)
         console.log(response)
         window.location.reload()
     }
