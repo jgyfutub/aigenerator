@@ -21,7 +21,7 @@ const navigate = useNavigate()
         }
         },[])
         const getimgpaths=async(formdata)=>{
-            const response=await axios.post('http://127.0.0.1:8000/savedenhancedimages/',formdata)
+            const response=await axios.post('http://127.0.0.1:5000/savedenhancedimages/',formdata)
             return await response
         }
         useEffect(()=>{
